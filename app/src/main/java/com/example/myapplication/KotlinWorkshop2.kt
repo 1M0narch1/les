@@ -36,9 +36,9 @@ object KotlinWorkshop2 {
             print("Введите число в диапазоне 0..$nonNullUpperBound включительно: ")
             // Сохраняем введённое с клавиатуры число в "userInput".
             val userInput: Int = scanner.nextInt()
-            if (true) {
-
-            }
+            if (randomNumber>userInput) println("Ваше число меньше задуманного, пожалуйста продолжаем.")
+            else if(randomNumber<userInput) println("Ваше число больше задуманного, пожалуйста продолжаем.")
+            else println("Поздравляю! Задуманное число $userInput")
         }
     }
 

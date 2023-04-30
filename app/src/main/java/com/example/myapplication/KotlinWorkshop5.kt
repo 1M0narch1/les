@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+file:Suppress("unused")
 
 package dev.lynko.cources2023
 
@@ -29,15 +29,25 @@ class Bicycle: Transport(1) {
 //  См. ниже.
 // ? Имена классов и файлов Котлин принято называть с заглавной буквы, в формате "camelCase".
 // Например: "SomeLongClassName"
-//interface ...
+interface TransportWithICE{
+    var consumption : Double
+}
 
 // TODO 2: Создай свои собственные классы, например "Bus" и "Car".
 //  Эти классы не будут полностью написаны с нуля, они должны расширять общий класс "Transport",
 //  и дополнительно реализовывать придуманный тобой интерфейс.
 // ? Класс может наследовать только один класс, но реализовывать несколько интерфейсов, например:
 // class Kitty(): Cat, Cuteable, Sleepable, Furryable {}
-//class Bus ...
-//class Car ...
+class Bus(override var consumption: Double) : Transport(1),TransportWithICE{
+    override fun drive() {
+        println("whoosh $consumption liters per kilometer")
+    }
+}
+class Car(override var consumption: Double) : Transport(1),TransportWithICE{
+    override fun drive() {
+        println("whoosh $consumption liters per 100 kilometers")
+    }
+}
 
 // TODO 3: Протестируй работоспособность твоего транспорта.
 object VehiclesTest {
@@ -48,31 +58,36 @@ object VehiclesTest {
         testBus()
         testCar()
         testBicycle()
+        testBusParts()
     }
 
     private fun testBus() {
         println("Testing how bus drives...")
-//        val bus = ...
+        val bus = Bus(25.5)
+        bus.drive()
     }
 
     private fun testCar() {
         println("Testing how car drives...")
-//        val car = ...
+        val car = Car(11.2)
+        car.drive()
     }
 
     private fun testBicycle() {
         println("Testing how bicycle drives...")
-//        ...
+        var bicycle = Bicycle()
+        bicycle.drive()
     }
 
     // TODO 4: Протестируй агрегаты автобуса, как независимые компоненты.
     //  Т.е. каждый набор независимых свойств - отдельно, чтобы в тестируемой сущности были скрыты все свойства,
     //  не принадлежащие к данному набору.
     private fun testBusParts() {
-        println("Testing bus's feature 1...")
+        var normalBus = Bus(23.4)
+        println("Testing bus's feature ${normalBus.consumption} <- normal bus consumption")
 
-
-        println("Testing bus's feature 2...")
+        var brokenBus = Bus(53.4)
+        println("Testing bus's feature ${brokenBus.consumption} <- normal bus consumption")
 
     }
 }

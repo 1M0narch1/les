@@ -28,14 +28,15 @@ object KotlinWorkshop1 {
         //  Присвой "notNullUserString" значение из "nullableElvisString".
         //  Если "nullableElvisString" равно null, сделай значение "notNullUserString" равным значению пустой строки "emptyString".
         //  Исправить присвоение используя Элвис-оператор "?:".
-//        var notNullUserString: String =
-//        println("Строка результат равна $notNullUserString")
+
+        var notNullUserString: String = nullableElvisString ?: emptyString
+        println("Строка результат равна $notNullUserString")
 
         // TODO 2: Раскомментируй 38 - 39 строки.
         //  По факту мы знаем, что значение "nullableAssertionString" не равно null.
         //  Сделай принудительное присвоение используя !! оператор.
-//        notNullUserString =
-//        println("Строка результат равна $notNullUserString")
+        notNullUserString = nullableAssertionString!!
+        println("Строка результат равна $notNullUserString")
 
         // TODO 3: Раскомментируй 47 - 48 строки. Сложи две переменные.
         //  Если firstNumber равно null, сумма должна быть null. Если secondNumber равно null, сумма должна быть равна значение firstNumber.
@@ -43,7 +44,7 @@ object KotlinWorkshop1 {
         val notNullAlternative = 0
         val firstNumber: Int? = 10
         val secondNumber: Int? = 20
-//        val sum : Int? =
-//        println("Сумма равна {$sum}")
+        val sum : Int? = firstNumber?.plus(secondNumber?:notNullAlternative)
+        println("Сумма равна {$sum}")
     }
 }
