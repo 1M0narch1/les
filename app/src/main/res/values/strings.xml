@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="Get_Battery_Charger">Get Battery Charger</string>
+    <string name="Support_PixelPhone">Support PixelPhone</string>
 </resources>

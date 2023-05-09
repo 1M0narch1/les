@@ -7,12 +7,34 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/BatteryChargeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BatteryChargeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/Get_Battery_Charger"
+        app:layout_constraintEnd_toEndOf="@+id/BatteryChargeTV"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/BatteryChargeTV"
+        app:layout_constraintTop_toBottomOf="@+id/BatteryChargeTV" />
+
+    <Button
+        android:id="@+id/SuppotPixelPhoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/Support_PixelPhone"
+        app:layout_constraintEnd_toEndOf="@+id/BatteryChargeButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/BatteryChargeButton"
+        app:layout_constraintTop_toBottomOf="@+id/BatteryChargeButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
