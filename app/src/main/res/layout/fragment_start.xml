@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".StartFragment">
 
+<!--     id без camel_Case -->
     <EditText
-        android:id="@+id/edit_Max_Generate_Number"
+        android:id="@+id/edit_Max_Generate_Number" 
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="225dp"
