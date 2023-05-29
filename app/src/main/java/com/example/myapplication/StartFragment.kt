@@ -32,10 +32,12 @@ class StartFragment : Fragment() {
                 if(editMinGenerateNumber.text.toString().isEmpty()
                     && editMaxGenerateNumber.text.toString().isEmpty())
                     validationTextView.text = "Введены неверные значения"
+                //Можно было использовать editMinGenerateNumber.error для отображения error текста
                 else if(editMaxGenerateNumber.text.toString().toInt()<editMinGenerateNumber.text
                         .toString().toInt())
                     validationTextView.text = "Введены неверные значения"
                 else{
+                    //Можно было использовать интерфейс, но не буду считать за ошибку
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(id, ResultFragment.newInstance(editMinGenerateNumber.text.toString(),
                             editMaxGenerateNumber.text.toString())).commit()
@@ -48,6 +50,7 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Пересмотри последнюю лекцию, там объяснял как правильно инициализировать биндинг во фрагментах 
         return StartFragmentBinding.root
     }
 
