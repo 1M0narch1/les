@@ -27,6 +27,7 @@ class ResultFragment : Fragment() {
 
         resultFragmentBinding.apply {
 
+            //стараемся не использовать !!, скоро за это начну снижать баллы
             generatedNumberText.text = (Random.nextInt(max!!.toInt()-min!!.toInt())+min!!.toInt())!!.toString()
 
             returnToStart.setOnClickListener{
