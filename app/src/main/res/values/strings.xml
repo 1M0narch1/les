@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="welcome_back">Welcome back</string>
+    <string name="enter_your_credential_to_continue">Enter your credential to continue</string>
+    <string name="email_or_username">Email or username</string>
+    <string name="password_text">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="log_in">Log in</string>
+    <string name="register_text">Register</string>
+    <string name="do_not_have_account_sign_up">Don’t have account? Sign up</string>
+
+    <string name="personal_page_text">Personal page</string>
+    <string name="nums_post">125</string>
+    <string name="nums_folower">20k</string>
+    <string name="nums_folowing">22</string>
+    <string name="posts_text">Posts</string>
+    <string name="followers_text">Followers</string>
+    <string name="following_text">Following</string>
+    <string name="username_text">Username</string>
+    <string name="address_text">Address</string>
+    <string name="description_text">Description</string>
+    <string name="directions_text">DIRECTIONS</string>
+    <string name="call_text">CALL</string>
+    <string name="save_text">SAVE</string>
+    <string name="website_text">WEBSITE</string>
+
+
 </resources>

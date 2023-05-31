@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FragmentUser">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gude_line_user_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="12dp" />
+
+
+        <TextView
+            android:id="@+id/people_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="@string/personal_page_text"
+            android:textColor="@color/login_first_text_color"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/gude_line_user_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/People_icon_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/circle"
+            app:layout_constraintStart_toStartOf="@+id/gude_line_user_start"
+            app:layout_constraintTop_toBottomOf="@+id/people_text_view" />
+
+        <TextView
+            android:id="@+id/nums_post_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83dp"
+            android:text="@string/nums_post"
+            android:textColor="@color/login_first_text_color"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/nums_folowers_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/People_icon_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nums_folowers_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83dp"
+            android:text="@string/nums_folower"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintEnd_toStartOf="@+id/nums_folowing_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/nums_post_text_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nums_folowing_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="83dp"
+            android:text="@string/nums_folowing"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/nums_folowers_text_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/folowing_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/following_text"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintEnd_toEndOf="@+id/nums_folowing_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/nums_folowing_text_view"
+            app:layout_constraintTop_toBottomOf="@id/nums_folowing_text_view" />
+
+        <TextView
+            android:id="@+id/post_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/posts_text"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintEnd_toEndOf="@+id/nums_post_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/nums_post_text_view"
+            app:layout_constraintTop_toBottomOf="@id/nums_post_text_view" />
+
+        <TextView
+            android:id="@+id/folowers_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/followers_text"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintEnd_toEndOf="@+id/nums_folowers_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/nums_folowers_text_view"
+            app:layout_constraintTop_toBottomOf="@id/nums_folowers_text_view" />
+
+        <TextView
+            android:id="@+id/username_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/username_text"
+            android:textColor="@color/login_first_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/gude_line_user_start"
+            app:layout_constraintTop_toBottomOf="@+id/People_icon_view" />
+
+        <TextView
+            android:id="@+id/adress_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/description_text"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintStart_toStartOf="@+id/gude_line_user_start"
+            app:layout_constraintTop_toBottomOf="@+id/username_text_view" />
+
+        <TextView
+            android:id="@+id/decription_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address_text"
+            android:textColor="@color/login_first_text_color"
+            app:layout_constraintStart_toStartOf="@+id/gude_line_user_start"
+            app:layout_constraintTop_toBottomOf="@+id/adress_text_view" />
+
+
+        <ImageView
+            android:id="@+id/pre_post5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/pre_post6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/pre_post4"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <ImageView
+            android:id="@+id/pre_post1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/pre_post2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <ImageView
+            android:id="@+id/pre_post2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/pre_post3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/pre_post1"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <ImageView
+            android:id="@+id/pre_post3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/pre_post4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/pre_post2"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <ImageView
+            android:id="@+id/pre_post4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/pre_post5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/pre_post3"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <ImageView
+            android:id="@+id/pre_post6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/login_first_text_color"
+            android:drawablePadding="10dp"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/pre_post5"
+            app:layout_constraintTop_toBottomOf="@+id/decription_text_view" />
+
+        <TextView
+            android:id="@+id/derection_butoon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:clickable="true"
+            android:drawableTop="@drawable/f"
+            android:drawablePadding="10dp"
+            android:text="@string/directions_text"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toStartOf="@+id/call_butoon_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pre_post1" />
+
+        <TextView
+            android:id="@+id/call_butoon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:clickable="true"
+            android:drawableTop="@drawable/f"
+            android:drawablePadding="10dp"
+            android:text="@string/call_text"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toStartOf="@+id/save_butoon_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/derection_butoon_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/pre_post3"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/save_butoon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:clickable="true"
+            android:drawableTop="@drawable/f"
+            android:drawablePadding="10dp"
+            android:text="@string/save_text"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toStartOf="@+id/web_butoon_text_view"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/call_butoon_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/pre_post4"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/web_butoon_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="43dp"
+            android:clickable="true"
+            android:drawableTop="@drawable/f"
+            android:drawablePadding="10dp"
+            android:text="@string/website_text"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/save_butoon_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/pre_post6" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+
+            android:background="@drawable/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/call_butoon_text_view" />
+
+        <ImageView
+            android:id="@+id/post1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/post3"
+            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+        <ImageView
+            android:id="@+id/post2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/post3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+        <ImageView
+            android:id="@+id/post3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/login_first_text_color"
+            android:src="@drawable/people"
+            app:layout_constraintEnd_toStartOf="@+id/post1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/post2"
+            app:layout_constraintTop_toBottomOf="@+id/line_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
