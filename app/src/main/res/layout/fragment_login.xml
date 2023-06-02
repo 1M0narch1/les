@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentLogin">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="constr"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AuthActivity">
 
         <TextView
             android:id="@+id/welcome_login_text_view"
@@ -52,9 +47,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_login"
-            style="@style/"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="outline"
@@ -63,8 +57,9 @@
             app:layout_constraintTop_toBottomOf="@id/continue_login_text_view">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_input_edit_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:drawableStart="@drawable/login"
                 android:drawablePadding="12dp"
@@ -80,7 +75,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_pasword"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="outline"
@@ -89,18 +84,18 @@
             app:layout_constraintTop_toBottomOf="@id/text_input_layout_login">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_input_edit_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:drawableStart="@drawable/password"
-                android:drawableEnd=""
                 android:drawablePadding="12dp"
                 android:ellipsize="start"
                 android:gravity="center_vertical"
                 android:hint="@string/password_text"
                 android:textColorHint="@color/login_second_text_color"
                 android:textSize="16sp"
-                tools:ignore="TextContrastCheck" />
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -131,7 +126,7 @@
             app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
             app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_view"
             app:rippleColor="#2E0404"
-            android:onClick="login"/>
+            />
 
         <Button
             android:id="@+id/register_button"
@@ -159,6 +154,4 @@
             app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
             tools:ignore="TouchTargetSizeCheck" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

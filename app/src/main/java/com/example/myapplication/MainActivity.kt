@@ -13,11 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
-        startActivity(Intent(this, AuthActivity::class.java))
+
+        supportFragmentManager.beginTransaction().replace(mainBinding.container.id, FragmentUser.newInstance("")).commit()
     }
 
-    override fun onResume() {
-        super.onResume()
-        supportFragmentManager.beginTransaction().replace(mainBinding.container.id, FragmentLogin.newInstance("No generate")).commit()
-    }
 }

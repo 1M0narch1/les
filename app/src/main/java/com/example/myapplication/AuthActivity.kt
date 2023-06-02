@@ -13,6 +13,12 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         authBinding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(authBinding.root)
+        supportFragmentManager.beginTransaction().replace(authBinding.container.id, FragmentLogin.newInstance("")).commit()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finish()
     }
 
 }
