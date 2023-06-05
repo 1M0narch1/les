@@ -15,17 +15,17 @@ class FragmentUser : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userBinding = FragmentUserBinding.inflate(layoutInflater)
-
         arguments?.let {
             param1 = it.getString("ARG_PARAM1")
         }
+        //Видимо забыл передать userName и отобразить его
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        userBinding = FragmentUserBinding.inflate(layoutInflater)
         return userBinding.root
     }
 

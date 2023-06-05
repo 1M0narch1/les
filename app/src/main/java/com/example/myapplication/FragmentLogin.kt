@@ -14,19 +14,23 @@ import com.example.myapplication.databinding.FragmentLoginBinding
 
 class FragmentLogin : Fragment() {
 
+    //Не используется
     private var param1: String? = null
 
     private lateinit var loginBinding: FragmentLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loginBinding = FragmentLoginBinding.inflate(layoutInflater)
+        //Продолжаешь инициализировать биндинг в onCreate)
+//        loginBinding = FragmentLoginBinding.inflate(layoutInflater)
         arguments?.let {
             param1 = it.getString("ARG_PARAM1")
         }
         loginBinding.apply {
             loginButton.setOnClickListener {
                 if(!textInputEditLogin.text!!.isEmpty() && !textInputEditPassword.text!!.isEmpty()){
+                    //requireContext() - для получения контекста во фрагменте
+                    //setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)) интересное решение, можно было также вызвать requireActivity().finish()
                     startActivity(Intent(activity!!.applicationContext, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK))
                 }
             }
@@ -37,6 +41,7 @@ class FragmentLogin : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        loginBinding = FragmentLoginBinding.inflate(layoutInflater)
         return loginBinding.root
     }
 

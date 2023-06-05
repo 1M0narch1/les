@@ -18,6 +18,7 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        //Не самая хорошая практика вызывать finish у активити
         finish()
     }
 
