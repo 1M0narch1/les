@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FragmentLogin">
-
-        <!--    Смотри, этот экран необходимо было сделать через LinearLayout, ConstraintLayout это конечно хорошо,-->
-        <!--    но с Linear тоже нужно уметь работать, так как он наверное второй по популярности контейнер-->
-        <!--    Поэтому попробуй переделать на него-->
 
         <TextView
             android:id="@+id/welcome_login_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="96dp"
             android:text="@string/welcome_back"
             android:textColor="@color/login_first_text_color"
             android:textSize="32sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/continue_login_text_view"
@@ -31,75 +27,57 @@
             android:text="@string/enter_your_credential_to_continue"
             android:textColor="@color/login_second_text_color"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
-            app:layout_constraintTop_toBottomOf="@id/welcome_login_text_view"
+            android:layout_marginStart="28dp"
             tools:ignore="TextContrastCheck" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gude_line_login_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintGuide_begin="28dp"
-            android:orientation="vertical"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gude_line_login_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintGuide_end="28dp"
-            android:orientation="vertical"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_login"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="outline"
-            app:layout_constraintStart_toStartOf="@id/gude_line_login_start"
-            app:layout_constraintEnd_toEndOf="@id/gude_line_login_end"
-            app:layout_constraintTop_toBottomOf="@id/continue_login_text_view">
-                <!--  ширину и высоту вложенного TextInputEditText обычно делают match_parent     -->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_login"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:drawableStart="@drawable/login"
-                android:drawablePadding="12dp"
-                android:ellipsize="start"
-                android:gravity="center_vertical"
-                android:hint="@string/email_or_username"
-                android:textColorHint="@color/login_second_text_color"
-                android:textSize="16sp"
-                tools:ignore="TextContrastCheck" />
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_edit_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:drawableStart="@drawable/login"
+                    android:drawablePadding="12dp"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical"
+                    android:hint="@string/email_or_username"
+                    android:textColorHint="@color/login_second_text_color"
+                    android:textSize="16sp"
+                    tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_pasword"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             app:boxBackgroundColor="#FFFFFF"
             app:boxBackgroundMode="outline"
-            app:layout_constraintStart_toStartOf="@id/gude_line_login_start"
-            app:layout_constraintEnd_toEndOf="@id/gude_line_login_end"
-            app:layout_constraintTop_toBottomOf="@id/text_input_layout_login">
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:drawableStart="@drawable/password"
-                android:drawablePadding="12dp"
-                android:ellipsize="start"
-                android:gravity="center_vertical"
-                android:hint="@string/password_text"
-                android:textColorHint="@color/login_second_text_color"
-                android:textSize="16sp"
-                />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_edit_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="12dp"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical"
+                    android:hint="@string/password_text"
+                    android:textColorHint="@color/login_second_text_color"
+                    android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -108,17 +86,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:clickable="true"
-
             android:text="@string/forgot_password"
             android:textColor="@color/login_first_text_color"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/gude_line_login_end"
-            app:layout_constraintTop_toBottomOf="@+id/text_input_layout_pasword"
+            android:layout_gravity="end"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="28dp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/first_button_color"
@@ -126,36 +104,36 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:cornerRadius="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/gude_line_login_end"
-            app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
-            app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_view"
-            app:rippleColor="#2E0404"
-            />
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+            app:rippleColor="#2E0404" />
 
         <Button
             android:id="@+id/register_button"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/black"
             android:text="@string/register_text"
             android:textSize="20sp"
             app:cornerRadius="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/gude_line_login_end"
-            app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
-            app:layout_constraintTop_toBottomOf="@+id/login_button" />
+            android:layout_marginEnd="28dp"
+            android:layout_marginStart="28dp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/dont_have_accaunt_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="29dp"
             android:clickable="true"
             android:text="@string/do_not_have_account_sign_up"
             android:textColor="@color/login_first_text_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/gude_line_login_end"
-            app:layout_constraintStart_toStartOf="@+id/gude_line_login_start"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="29dp"
             tools:ignore="TouchTargetSizeCheck" />
+</androidx.appcompat.widget.LinearLayoutCompat>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
