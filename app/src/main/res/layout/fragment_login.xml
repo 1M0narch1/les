@@ -56,20 +56,22 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        Чуть подправил TextInputLayout и TextInputEditText-->
+<!--        Оставил на первом, чтобы была видна разница-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_pasword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             app:boxBackgroundColor="#FFFFFF"
-            app:boxBackgroundMode="outline"
             android:layout_marginStart="28dp"
             android:layout_marginEnd="28dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/text_input_edit_password"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="match_parent"
                     android:layout_centerInParent="true"
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="12dp"
@@ -120,6 +122,7 @@
             android:layout_marginEnd="28dp"
             android:layout_marginStart="28dp"/>
 
+<!--        Неплохо, мне понравилась идея-->
         <Space
             android:layout_width="wrap_content"
             android:layout_height="20dp"
