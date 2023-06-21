@@ -10,12 +10,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import android.widget.Toolbar
-import dev.lynko.cources2023.databinding.ActivityMainBinding
+
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.*
 import com.example.myapplication.databinding.ActivityMainBinding
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
 //import androidx.lifecycle.lifecycleScope
@@ -26,13 +27,11 @@ class RxJavaWorkShop : AppCompatActivity() {
     private var TAG = "MainActivity"
 
     lateinit var binding: ActivityMainBinding
-    lateinit var thisContext : Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        thisContext = this
         //TODO 1 По нажатию на кнопку button, необходимо вызывать метод startRSStream
         binding.buttonnn.setOnClickListener { startRStream() }
 
@@ -53,7 +52,7 @@ class RxJavaWorkShop : AppCompatActivity() {
         //TODO 4 Имея myObservable и myObserver, произведите подписку(subscribe). Observable должен выполняться
         // в фоновом потоке, а обработка значений Observer в Main потоке.
 
-        myObservable.subscribeOn(Schedulers.io()).subscribe(myObserver)
+        myObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(myObserver)
 
     }
 
@@ -61,23 +60,25 @@ class RxJavaWorkShop : AppCompatActivity() {
 
 
     private fun getObserver() : Observer<String> {
-        return Observer<String>( {
-            override fun onSubscribe(d: Disposable) {
-                Toast.makeText(thisContext, "onSubscribe", Toast.LENGTH_LONG).show()
-            }
+        return object : Observer<String>{
 
-            override fun onNext(s: String) {
-                Toast.makeText(thisContext, "$s", Toast.LENGTH_LONG).show()
+            override fun onSubscribe(d: Disposable) {
+                Toast.makeText(this@RxJavaWorkShop, "onSubscribe", Toast.LENGTH_SHORT).show()
             }
 
             override fun onError(e: Throwable) {
-                Toast.makeText(thisContext, "onError", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RxJavaWorkShop, "onError", Toast.LENGTH_SHORT).show()
             }
 
             override fun onComplete() {
-                Toast.makeText(thisContext, "onComplete", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RxJavaWorkShop, "onComplete", Toast.LENGTH_SHORT).show()
             }
-        })
+
+            override fun onNext(t: String) {
+                Toast.makeText(this@RxJavaWorkShop, t, Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
 
