@@ -8,7 +8,7 @@ import kotlin.random.nextInt
 // Dispatcher.IO
 
 val myСoroutineScope = CoroutineScope(Dispatchers.IO + Job())
-val magickNumber = 15
+val magickNumber = 15 //За отдельную переменную респект
 
 fun main()  {
     //  TODO 2 Запустите корутину в созданном coroutineScope.
@@ -24,46 +24,19 @@ fun main()  {
             while (true) {
                 val number = getRandomNumber()
                 if (number >= magickNumber) {
+                    //Все верно, моя ошибка
+                    //Dispatcher.Main нельзя использовать в kotlin файлах
 /*  при    launch(Dispatchers.Main) {
                             println("Congrats! Your number is $number")
                         }
                     Exception in thread "DefaultDispatcher-worker-2" java.lang.IllegalStateException: Module with the Main dispatcher had failed to initialize. For tests Dispatchers.setMain from kotlinx-coroutines-test module can be used
-	at kotlinx.coroutines.internal.MissingMainCoroutineDispatcher.missing(MainDispatchers.kt:118)
-	at kotlinx.coroutines.internal.MissingMainCoroutineDispatcher.isDispatchNeeded(MainDispatchers.kt:96)
-	at kotlinx.coroutines.internal.DispatchedContinuationKt.resumeCancellableWith(DispatchedContinuation.kt:319)
-	at kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable(Cancellable.kt:30)
-	at kotlinx.coroutines.intrinsics.CancellableKt.startCoroutineCancellable$default(Cancellable.kt:25)
-	at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:110)
-	at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
-	at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
-	at kotlinx.coroutines.BuildersKt.launch(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch$default(Builders.common.kt:47)
-	at kotlinx.coroutines.BuildersKt.launch$default(Unknown Source)
-	at com.example.myapplication.CoroutinesWorkShopKt$main$jobFinal$1$1.invokeSuspend(CoroutinesWorkShop.kt:27)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
-	at kotlinx.coroutines.internal.LimitedDispatcher.run(LimitedDispatcher.kt:42)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:95)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:570)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:749)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:677)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:664)
-	Suppressed: kotlinx.coroutines.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@7a27efb2, Dispatchers.IO]
-Caused by: java.lang.RuntimeException: Stub!
-	at android.os.Looper.getMainLooper(Looper.java:30)
-	at kotlinx.coroutines.android.AndroidDispatcherFactory.createDispatcher(HandlerDispatcher.kt:55)
-	at kotlinx.coroutines.internal.MainDispatchersKt.tryCreateDispatcher(MainDispatchers.kt:57)
-	at kotlinx.coroutines.internal.MainDispatcherLoader.loadMainDispatcher(MainDispatchers.kt:38)
-	at kotlinx.coroutines.internal.MainDispatcherLoader.<clinit>(MainDispatchers.kt:22)
-	at kotlinx.coroutines.Dispatchers.getMain(Dispatchers.kt:57)
-	... 9 more
-	* */
+	*/
                         withContext(Dispatchers.Default) {
                             println("Congrats! Your number is $number")
                         }
                     break
                 }
-                delay(200L)
+                delay(200L) //2 секунды это 2000L))
             }
             println("Coroutine TODO 2 end")
         }
@@ -99,13 +72,13 @@ Caused by: java.lang.RuntimeException: Stub!
 
         val jobFinal = myСoroutineScope.launch {
             println("Coroutine TODO 4 start")
-            withContext(Dispatchers.Default) {
-                println("Start delay")
+            withContext(Dispatchers.Default) { //Необходимо было поменять на launch, а println("Start delay") оставить там, где он был изначально
+                println("Start delay") // Написаные println трогать и добавлять новые запрещается)))
                 doWork(getRandomNumber())
             }
             delay(7_000L)
             println("End delay")
-            launch(Dispatchers.IO) {
+            launch(Dispatchers.IO) { // А тут необходимо было поменять на withContext, чтобы изначально выполнился код в нем, а после то, что после блока withContext
                 delay(1000L)
                 println("Coroutine TODO 4 end")
             }
