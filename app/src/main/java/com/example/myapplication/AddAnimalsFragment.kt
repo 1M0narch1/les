@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,12 +26,31 @@ class AddAnimalsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         addAnimalsBinding = FragmentAddAnimalsBinding.inflate(layoutInflater)
         animalsRepository = AnimalsRepository(MyAnimalsApp.INSTANCE.database.animalsDao())
         arguments?.let {
         }
 
         with(addAnimalsBinding) {
+        var type = animalTypes[0]
+        val spinerAdapter = ArrayAdapter<String>(this@AddAnimalsFragment.
+        requireContext(),android.R.layout.simple_spinner_item, animalTypes)
+        spinerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        typeOfAnimalSpiner.adapter = spinerAdapter
+        typeOfAnimalSpiner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                type = animalTypes[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
 
             add.setOnClickListener {
                 val name = nameEditText.run {
@@ -53,23 +73,6 @@ class AddAnimalsFragment : Fragment() {
                     text?.clear()
                     textVar
                 }
-                var type = animalTypes[0]
-                typeOfAnimalSpiner.adapter = ArrayAdapter<String>(this@AddAnimalsFragment.
-                requireContext(),android.R.layout.simple_spinner_item, animalTypes)
-                typeOfAnimalSpiner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                    override fun onItemSelected(
-                        parent: AdapterView<*>?,
-                        view: View?,
-                        position: Int,
-                        id: Long
-                    ) {
-                        type = animalTypes[position]
-                    }
-
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                    }
-
-                }
 
                 val createdTime = System.currentTimeMillis()
 
@@ -88,6 +91,7 @@ class AddAnimalsFragment : Fragment() {
 
                 }
 
+                startActivity(Intent(requireContext(), MainActivity::class.java))
             }
         }
     }

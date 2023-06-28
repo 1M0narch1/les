@@ -21,9 +21,10 @@
         android:baselineAlignBottom="true"
         android:clickable="true"
         android:focusable="true"
+        android:importantForAccessibility="no"
         android:src="@drawable/baseline_exposure_plus_1_24"
+        app:backgroundTint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:importantForAccessibility="no" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

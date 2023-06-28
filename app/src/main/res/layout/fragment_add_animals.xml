@@ -82,24 +82,27 @@
             android:id="@+id/discriptionEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Weight"/>
+            android:hint="discription"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--    <Spinner-->
     <Button
         android:id="@+id/add"
+        style="@android:style/Widget.Material.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
+        android:background="@color/purple_500"
+        android:ellipsize="middle"
         android:text="Add"
         android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:cornerRadius="@dimen/cardview_default_radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discriptionInputLayout" />
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/nameInputLayout"-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

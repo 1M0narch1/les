@@ -3,6 +3,7 @@ package com.example.myapplication
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 
@@ -29,11 +30,13 @@ class MainActivity : AppCompatActivity() {
         binding.FABOpenAddAnimalFragment.setOnClickListener{
             supportFragmentManager.beginTransaction().replace(binding.container.id,
                 AddAnimalsFragment.newInstance()).commit()
+            binding.FABOpenAddAnimalFragment.visibility = View.GONE
         }
     }
 
     override fun onResume() {
         super.onResume()
+        binding.FABOpenAddAnimalFragment.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction().replace(binding.container.id, AnimalsFragment.newInstance()).commit()
     }
 
