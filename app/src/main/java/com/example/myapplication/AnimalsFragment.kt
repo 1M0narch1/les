@@ -58,8 +58,7 @@ class AnimalsFragment : Fragment() {
         @JvmStatic
         fun newInstance() =
             AnimalsFragment().apply {
-                arguments = Bundle().apply {
-                }
+                arguments = Bundle().apply {}
             }
     }
 }

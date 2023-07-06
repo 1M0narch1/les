@@ -90,7 +90,7 @@ class AddAnimalsFragment : Fragment() {
                     )
 
                 }
-
+                //Если я не ошибаюсь, каждый раз будет создаваться новая activity поверх предыдущей
                 startActivity(Intent(requireContext(), MainActivity::class.java))
             }
         }
